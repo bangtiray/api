@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "jastan-laravel",
+  "private_key_id": "c62a8a4edf56b6ddea0a4de22c169dedb978001f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDPK69pJ4Kg/C5P\na4u0OtGX1mlbxpcPvx+m/59X/k9psCRJQzJG3lH1Yoha/cvlCxIu8OwczrmtBpXd\n3/vXHAgd8Kg1xMPX/uGfNvkBdepOk/l/90H9lij3uRzlpvITTRy0HL7aiAZMrpr8\nNHq+DIooYm7byQlXraYBFJYz/6zWAYWokc+zcYXvX20cOEzHRVih+xd1PAG8/tFr\nYsxHpOSDu5GhG6QsuoM6dY9Q+MTijACZdKM1d4WK1b7KTeWeF8aHFy/OT/tYGDhu\nIjS1JBy0Hh3AWKLtjVXW1/GaVWTemotkFb5lj7JoveYPvHUw5N9+Bqi10iphzVhL\n+MkGgUPPAgMBAAECggEAObEuK4fjskYX9Wj7IikhFfoRJAwlJC7ytxRHgP8iiUmS\niU5rsV2XEFEsrL4xqiqPmT/hWNJe1abYVE3cOZamUgQjK7oMWdmyZh6ucDAwnEpL\n+E1YdLB83yOPPwrjLenS/PtmUMABlRgos+Q/bC5cyQtEWPNepSqH6JQdkgR40q1g\nMcUNYjoVd7+b965aEJCJZYce0q5eKFKrLFFO5IayL550mFbJaCpUR6M+/+kCfJx+\njYgiKXvBG7Y21xlQprSOgn0tSvPtqmiFsM3KisW+UaOXV4fGl9Ti7fs8JX335M5F\nt4/ELlQNo7FAY1/1zjVqikfeMvElh9pXifGeyL+bJQKBgQD4mfaoN/ykGjw5L7QT\n6Tt2FJTlpUNL5MphHHQFcVjoolTt+tR+0WjiFut99+tkt3SQ+K0PZ7yKyxUj6xF+\nCdmMQ+NLF7Wfn6XNHeyQUPjbSOk9jzcBm1zVCyTZDaVN7U5kRcaerYHavU444NOJ\ncKGPhCQTNe82T43Ay51k6hYyNQKBgQDVVhH7XtIlISfkTzvv/4igaDTSU4c4VAJ7\nRxPuaqjG0aHxRViMzLImbIkZFOF+XBopeLkMtwAzlkNQoTE6hFrFAMg9ONAH7rNn\nqzIt/QY63qvRbUGqhz1rFzuVffNrvvy9EcpKrORtm6SyjcbTYjyca6qfnZ5z7z0f\n45iLrtyecwKBgBFy/RUhmOIL1V5OMt2S6VGIcEsOJoMVM/9M9/fJ1Ou/OSbbDD86\ng5oa8byNwj/3gH8MdVk3dsxnJLy4qymll1d5DGMg7uadVg3no8sdY9pAa96eRsYe\nGY36kkOJ6ahml7ICE8bfdtXbo7nqTe6/sRdZtw6CIqA1RUXbBNkodRZhAoGAGy/8\n2qwa2+B91PrECLHoF4kwMh2y/dq29j74q0mseKn+mWDdCBSOH5d1YVzn39KdAuv/\nqT8pJ2ne6kegnnR/nNucqTC0Uk55TpziqDm2sYnvG6Fw3OqfSSaM0WBbxT9xtiau\nQRYHhnBvbNHkpMvALa8K74yGxP+YKpg2uJZwR0ECgYBxOEJvJJe+NTMRQIuEAHcW\nbsgJ3EUWnzTZ9JeNxyOnJGarBwTQJX0cnjFnMDQE8buetiNloICudsVNG4s0fQnb\nTres08le0bc4GEMbO7zi9JBjhY5x3VQCMYrG9KgSzUUMDR18uVvYfkmHaaIjk+2P\n40HA3UzleFTqCg6ApIDwNw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-1v7eu@jastan-laravel.iam.gserviceaccount.com",
+  "client_id": "106861834593187986882",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-1v7eu%40jastan-laravel.iam.gserviceaccount.com"
+}
