@@ -28,10 +28,10 @@ class SppaController extends APIController
     const CASHPLANDETAIL = CashPlanDetail::class;
     const CASHPLANTEMP = TempDetails::class;
 
-    public function updateStatus($order_id,$type,$status)
+    public function updateStatus($order_id,$type,$status,$settlement_time)
     {
         Status::where('order_id', $order_id)
-          ->update(['type' => $type, 'status' => $status]);
+          ->update(['type' => $type, 'status' => $status,'pay_date' => $settlement_time]);
     }
     public function saveStatus(Request $request)
     {
@@ -81,8 +81,8 @@ class SppaController extends APIController
             return $this->respondInternalError($e->getMessage());
         }
 
-        $data=DB::table('temp_detail_casplan')
-        ->where('temp_detail_casplan.user_id',$user->id)
+        $data=DB::table('detail_casplan')
+        ->where('detail_casplan.order_id',"TEMP_".$user->id)
         ->orderBy('created_at','asc')->get();
 
         return $this->respond(
@@ -105,8 +105,9 @@ class SppaController extends APIController
             return $this->respondInternalError($e->getMessage());
         }
 
-        $summary=DB::table('temp_detail_casplan')
-        ->where('temp_detail_casplan.user_id',$user->id)
+        $summary=DB::table('detail_casplan')
+        ->where('detail_casplan.user_id',$user->id)
+        ->where('detail_casplan.order_id',"TEMP_".$user->id)
         ->orderBy('created_at','asc')->sum('unit_price');
         return $this->respond(
             [
@@ -130,16 +131,41 @@ class SppaController extends APIController
             return $this->respondInternalError($e->getMessage());
         }
 
-        $data=DB::table('temp_detail_casplan')
-        ->where('temp_detail_casplan.user_id',$user->id)
-        ->where('temp_detail_casplan.id',$id)
+        $data=DB::table('detail_casplan')
+        ->where('detail_casplan.user_id',$user->id)
+        ->where('detail_casplan.id',$id)
         ->orderBy('created_at','asc')->get();
         return $this->respond(
              $data
         );
     }
 
-   
+    public function deleteCashPlanTempId(Request $request){
+        $validation = Validator::make($request->all(), [
+            'id'  => 'required',
+        ]);
+        if ($validation->fails()) {
+            return $this->throwValidation($validation->messages()->first());
+
+        }
+        $token = JWTAuth::getToken();
+        $payload = JWTAuth::parseToken()->getPayload();
+        if (!$token) {
+            $this->respondUnauthorized("Invalid Token");
+        }
+
+        try {
+            $user = JWTAuth::user();
+        } catch (JWTException $e) {
+            return $this->respondInternalError($e->getMessage());
+        }
+        $id= $request->input("id");
+        $data = CashPlanDetail::findOrFail($id);
+        $data->delete();
+        return $this->respond([
+            'data'  => "Delete Successfull",            
+        ]);
+    }
     public function saveCashPlanTemp(Request $request)
     {
         $validation = Validator::make($request->all(), [
@@ -167,8 +193,9 @@ class SppaController extends APIController
             return $this->respondInternalError($e->getMessage());
         }
 
-        $data = self::CASHPLANTEMP;
+        $data = self::CASHPLANDETAIL;
         $data = new $data();
+        $data->order_id = "TEMP_" . $user->id;
         $data->participant_name = $request->input("participant_name");
         $data->jk = $request->input("gender");
         $data->tempat = $request->input("birth_place");

@@ -43,7 +43,7 @@ class NewsController extends APIController
     {
         $news=DB::table('blogs')
         ->join('blog_map_categories','blogs.id','=','blog_map_categories.blog_id')
-        ->where('blog_map_categories.category_id','5')
+        ->where('blog_map_categories.category_id','2')
         ->where('status','Published')
         ->orderBy('created_at','desc')->get();
 
@@ -69,7 +69,7 @@ class NewsController extends APIController
     {
         $news=DB::table('blogs')
         ->join('blog_map_categories','blogs.id','=','blog_map_categories.blog_id')
-        ->where('blog_map_categories.category_id','5')
+        ->where('blog_map_categories.category_id','4')
         ->where('status','Published')
         ->orderBy('created_at','desc')->get();
 

@@ -11,6 +11,7 @@ use App\Repositories\Frontend\Pages\PagesRepository;
 use App\Repositories\Frontend\Blogs\BlogsRepository;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Cache;
 use App\Http\Requests;
 use App\Models\BlogTags\Traits\Attribute\BlogTagAttribute;
 use App;
@@ -44,6 +45,25 @@ class FrontendController extends Controller
      }
     public function index(Request $request)
     {
+       
+        //Retrive cache data from redis.
+        $page = Cache::tags('site_cache')->get('home');
+        // dd($page);
+
+        //Check if cache exits, if not add cache to redis or return cache data from redis server.
+        if ($page != null && $page!='') {
+            return $page;
+        }
+        else{
+            Cache::tags('site_cache')->put('home', $this->getHome($request)->render().'', 60*24*5);
+        }
+        // return view('frontend.index');
+    
+        
+    }
+    public function getHome($request)
+    {
+
         $settingData = Setting::first();
         $google_analytics = $settingData->google_analytics;
         $data=DB::table('blogs')
@@ -78,13 +98,13 @@ class FrontendController extends Controller
         if ($request->ajax()) {
             return view('frontend.includes.announcement', ['blogs' => $data])->render();  
         }
+
         return view('frontend.index', ['blogs' => $data,
                                        'news' => $news,
                                        'available' => $salvage,
                                        'unavailable' => $salvages,
                                        ]);
     }
-
     public function annualreport()
     {
         $annual=DB::table('blogs')
@@ -218,6 +238,21 @@ class FrontendController extends Controller
     }
 
     public function showBlog($slug, BlogsRepository $pages)
+    {
+          //Retrive cache data from redis.
+          $page = Cache::tags('site_cache')->get('showBlog');
+           
+  
+          //Check if cache exits, if not add cache to redis or return cache data from redis server.
+          if ($page != null && $page!='') {
+              return $page;
+          }
+          else{
+              Cache::tags('site_cache')->put('showBlog', $this->showBlogRedis($slug, $pages)->render().'', 60*24*5);
+          }
+
+    }
+    public function showBlogRedis($slug, $pages)
     {
         $result = $pages->findBySlug($slug);
         //$random = Blog::orderByRaw('RAND()')->take(4)->get();

@@ -18,8 +18,9 @@ Route::group(['namespace' => 'Api\V2', 'prefix' => 'v2', 'as' => 'v2.'], functio
         Route::get('news', 'NewsController@getNews');
         Route::get('data/{kode}', 'NewsController@getData');
         Route::get('products/info/{slug}', 'NewsController@showProducts');
-        Route::get('updatestatus/{order_id}/{type}/{status}', 'SppaController@updateStatus');
+        Route::get('updatestatus/{order_id}/{type}/{status}/{setlementdatetime}', 'SppaController@updateStatus');
         Route::get('cetak', 'SppaController@print');
+        Route::post('notif', 'SnapController@notification');
         
     });
     Route::group(['middleware' => ['jwt.auth']], function () {
@@ -29,6 +30,7 @@ Route::group(['namespace' => 'Api\V2', 'prefix' => 'v2', 'as' => 'v2.'], functio
             Route::get('sumtemp', 'SppaController@cashplanTempDataSummary');
             Route::get('temp/id/{id}', 'SppaController@cashplanTempDataByID');
             Route::post('cashplantemp', 'SppaController@saveCashPlanTemp');
+            Route::post('deltempid', 'SppaController@deleteCashPlanTempId');
             Route::post('cashplan', 'SppaController@cashplanMaster');
             Route::post('cashplan_details', 'SppaController@cashplanDetail');
         });
@@ -38,6 +40,7 @@ Route::group(['namespace' => 'Api\V1', 'prefix' => 'v1', 'as' => 'v1.'], functio
     Route::group(['prefix' => 'auth'], function () {
         Route::post('register', 'RegisterController@register');
         Route::post('login', 'AuthController@login');
+    
     });
     Route::group(['middleware' => ['jwt.auth']], function () {
         Route::group(['prefix' => 'auth'], function () {

@@ -17,9 +17,13 @@ class CreateDetailCasplanTable extends Migration
             $table->increments('id');
             $table->string('order_id', 191);
             $table->string('participant_name', 191);
+            $table->string('jk', 191);
+            $table->string('tempat', 191);
+            $table->date('tgl_lahir');
+            $table->string('nip', 191);
             $table->string('plan', 10);
             $table->integer('unit_price');
-            $table->binary('resource');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

@@ -24,6 +24,7 @@
         "creativeorange/gravatar": "~1.0",
         "davejamesmiller/laravel-breadcrumbs": "^5.0",
         "doctrine/dbal": "^2.6",
+        "elibyy/tcpdf-laravel": "5.7.*",
         "fideloper/proxy": "^4.0",
         "hieu-le/active": "^3.5",
         "kreait/firebase-php": "4.18",
@@ -31,11 +32,11 @@
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4.0",
+        "predis/predis": "^1.1",
         "spatie/laravel-cors": "^1.2",
         "tymon/jwt-auth": "1.0.0-rc.3",
         "unisharp/laravel-filemanager": "~1.8",
-        "yajra/laravel-datatables-oracle": "~8.0",
-        "elibyy/tcpdf-laravel": "5.7.*"
+        "yajra/laravel-datatables-oracle": "~8.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.0",

@@ -25,6 +25,8 @@ class CreateUsersTable extends Migration
             $table->string('remember_token', 100)->nullable();
             $table->integer('created_by')->unsigned();
             $table->integer('updated_by')->unsigned()->nullable();
+            $table->string('address');
+            $table->string('phone');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -12,9 +12,13 @@ class CashplanDetail extends Model
     protected $fillable = [
         'order_id',
         'participant_name',
+        'jk',
+        'tempat',
+        'tanggal',
+        'nip',
         'plan',
         'unit_price',
-        'resource',
+        'user_id'
     ];
     
     protected $dates = [

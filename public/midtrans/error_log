@@ -1,6 +1,0 @@
-[21-Feb-2019 14:23:04 Asia/Jakarta] PHP Parse error:  syntax error, unexpected ''credit_card_3d_secure'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/jastanco/public_html/midtrans/Veritrans.php on line 494
-[18-Mar-2019 00:16:15 Asia/Jakarta] PHP Fatal error:  Call to undefined function href() in /home/jastanco/public_html/midtrans/handle_notification.php on line 41
-[18-Mar-2019 00:19:38 Asia/Jakarta] PHP Fatal error:  Call to undefined function href() in /home/jastanco/public_html/midtrans/handle_notification.php on line 41
-[18-Mar-2019 00:22:48 Asia/Jakarta] PHP Fatal error:  Call to undefined function href() in /home/jastanco/public_html/midtrans/handle_notification.php on line 49
-[18-Mar-2019 00:24:37 Asia/Jakarta] PHP Fatal error:  Call to undefined function href() in /home/jastanco/public_html/midtrans/handle_notification.php on line 42
-[18-Mar-2019 00:28:58 Asia/Jakarta] PHP Fatal error:  Call to undefined function replace() in /home/jastanco/public_html/midtrans/handle_notification.php on line 49
